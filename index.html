@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Christian Neusser – Bewerbung Professur W2 | Hochschule Ansbach</title>
+  <style>
+    :root {
+      --navy:  #1A3A5C;
+      --teal:  #0D7EA0;
+      --gold:  #E8A020;
+      --light: #F4F7FA;
+      --text:  #2C2C2C;
+      --white: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* ── NAVIGATION ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--navy);
+      z-index: 1000;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .nav-logo {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    /* Always-Hamburger */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px; height: 20px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,8px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-8px); }
+
+    .nav-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: var(--navy);
+      flex-direction: column;
+      padding: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .nav-menu.open { display: flex; }
+    .nav-menu a {
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-size: 0.95rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .nav-menu a:hover {
+      background: rgba(255,255,255,0.08);
+      border-left-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────────── */
+    main { padding-top: 60px; }
+
+    section { padding: 4.5rem 1.5rem; }
+    section:nth-child(even) { background: var(--light); }
+
+    .container { max-width: 960px; margin: 0 auto; }
+
+    h2.section-title {
+      font-size: 1.75rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+    .section-bar {
+      width: 60px; height: 4px;
+      background: var(--gold);
+      margin-bottom: 2.5rem;
+      border-radius: 2px;
+    }
+    h3 { color: var(--teal); font-size: 1.15rem; margin-bottom: 0.5rem; }
+
+    /* ── HERO ────────────────────────────────────────────────── */
+    #hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f2540 60%, #0D7EA0 100%);
+      color: var(--white);
+      padding: 6rem 1.5rem 5rem;
+      text-align: center;
+    }
+    #hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    #hero .subtitle {
+      font-size: 1.15rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    #hero .tagline {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.80);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .badge.gold {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.88; }
+
+    /* ── PROFILE / INTRO ─────────────────────────────────────── */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 680px) { .profile-grid { grid-template-columns: 1fr; } }
+    .profile-card {
+      background: var(--white);
+      border-top: 4px solid var(--teal);
+      padding: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .profile-card .icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+    .profile-card h4 {
+      color: var(--navy);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+    .profile-card p { font-size: 0.92rem; color: #444; }
+
+    /* ── CV / TIMELINE ────────────────────────────────────────── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--teal), var(--navy));
+      border-radius: 2px;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -2.15rem; top: 0.45rem;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+    .tl-date {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.2rem;
+    }
+    .tl-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.1rem;
+    }
+    .tl-org { font-size: 0.92rem; color: var(--teal); font-weight: 600; margin-bottom: 0.4rem; }
+    .tl-body { font-size: 0.9rem; color: #555; }
+    .tl-body strong { color: var(--navy); }
+
+    /* academic timeline */
+    .acad-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 600px) { .acad-grid { grid-template-columns: 1fr; } }
+    .acad-card {
+      border-left: 4px solid var(--gold);
+      padding: 1rem 1.25rem;
+      background: var(--white);
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.06);
+    }
+    .acad-card .degree {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+    .acad-card .inst { color: var(--teal); font-size: 0.9rem; margin-bottom: 0.25rem; }
+    .acad-card .years {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .acad-card .note { font-size: 0.85rem; color: #555; font-style: italic; }
+
+    /* ── DISSERTATION ─────────────────────────────────────────── */
+    .diss-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 720px) { .diss-grid { grid-template-columns: 1fr; } }
+    .diss-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .stat-box {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.25rem;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+    .stat-box .lbl { font-size: 0.8rem; opacity: 0.85; }
+    .proposition-list { margin-top: 1rem; }
+    .proposition-list li {
+      padding: 0.4rem 0;
+      font-size: 0.92rem;
+      border-bottom: 1px solid #e8e8e8;
+      list-style: none;
+    }
+    .proposition-list li::before {
+      content: 'P';
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 20px;
+      margin-right: 0.5rem;
+    }
+    .framework-box {
+      background: linear-gradient(135deg, var(--navy), #0f2540);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .framework-box .fw-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .framework-box .fw-sub {
+      font-size: 0.8rem;
+      opacity: 0.75;
+      margin-bottom: 1.5rem;
+    }
+    .mstm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .mstm-cell {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+      padding: 0.75rem;
+      border-radius: 4px;
+    }
+    .mstm-cell .letter {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+    .mstm-cell .word { font-size: 0.78rem; opacity: 0.85; }
+
+    /* ── TEACHING ─────────────────────────────────────────────── */
+    .teach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .teach-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      border-top: 4px solid var(--teal);
+      transition: transform 0.2s;
+    }
+    .teach-card:hover { transform: translateY(-3px); }
+    .teach-card .tc-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .teach-card h4 { color: var(--navy); font-size: 1rem; margin-bottom: 0.5rem; }
+    .teach-card p { font-size: 0.88rem; color: #555; }
+
+    /* ── PUBLICATIONS ─────────────────────────────────────────── */
+    .pub-list { margin-top: 1.5rem; }
+    .pub-item {
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+      background: var(--white);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+    .pub-item.forthcoming { border-left-color: var(--gold); }
+    .pub-item.review { border-left-color: #aaa; }
+    .pub-status {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.6rem;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+    }
+    .pub-status.published { background: #e0f4ea; color: #1a7a3e; }
+    .pub-status.forthcoming { background: #fff3dc; color: #8a5a00; }
+    .pub-status.review { background: #f0f0f0; color: #666; }
+    .pub-ref { font-size: 0.9rem; color: #333; line-height: 1.6; }
+    .pub-ref em { font-style: italic; }
+    .pub-note { font-size: 0.8rem; color: var(--teal); margin-top: 0.4rem; }
+
+    /* ── RESEARCH AGENDA ─────────────────────────────────────── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 640px) { .research-grid { grid-template-columns: 1fr; } }
+    .research-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .research-card h4 { color: var(--navy); margin-bottom: 0.6rem; font-size: 1rem; }
+    .research-card ul { padding-left: 1.2rem; font-size: 0.88rem; color: #555; }
+    .research-card ul li { margin-bottom: 0.3rem; }
+    .journal-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .j-pill {
+      background: var(--navy);
+      color: white;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* ── MANDATES ─────────────────────────────────────────────── */
+    .mandate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .mandate-card {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: 6px;
+      border-bottom: 4px solid var(--gold);
+    }
+    .mandate-card .company {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .mandate-card .role { font-size: 0.85rem; opacity: 0.85; margin-bottom: 0.5rem; }
+    .mandate-card .detail { font-size: 0.82rem; opacity: 0.75; }
+
+    /* ── CONTACT ─────────────────────────────────────────────── */
+    #kontakt { background: var(--navy); color: var(--white); }
+    #kontakt h2.section-title { color: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .contact-icon {
+      background: var(--gold);
+      color: var(--navy);
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+    .contact-item a { color: var(--gold); text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+    .contact-item p { font-size: 0.9rem; opacity: 0.85; }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    footer {
+      background: #0d1e30;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── UTILS ───────────────────────────────────────────────── */
+    .text-teal { color: var(--teal); }
+    .text-gold  { color: var(--gold); }
+    .mt1 { margin-top: 1rem; }
+    .mt2 { margin-top: 2rem; }
+
+    blockquote.intro {
+      border-left: 4px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      background: var(--white);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--navy);
+      border-radius: 0 4px 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-logo">Dr. <span>Christian Neusser</span></div>
+  <div class="hamburger" id="ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="nav-menu" id="navMenu">
+    <a href="#profil"        onclick="closeMenu()">Profil</a>
+    <a href="#lebenslauf"    onclick="closeMenu()">Lebenslauf</a>
+    <a href="#dissertation"  onclick="closeMenu()">Dissertation</a>
+    <a href="#lehre"         onclick="closeMenu()">Lehre &amp; Didaktik</a>
+    <a href="#publikationen" onclick="closeMenu()">Publikationen</a>
+    <a href="#forschung"     onclick="closeMenu()">Forschungsagenda</a>
+    <a href="#mandate"       onclick="closeMenu()">Praxismandate</a>
+    <a href="#kontakt"       onclick="closeMenu()">Kontakt</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-badges">
+      <span class="badge gold">Bewerbung Professur W2</span>
+    </div>
+    <h1>Dr. Christian Neusser</h1>
+    <p class="subtitle">DBA · MBA · MSc · Dipl.-Betriebswirt (FH)</p>
+    <p class="tagline">
+      Bewerbung auf die Professur (W2) für Grundlagen der Betriebswirtschaftslehre,
+      Supply Chain Management sowie Projekt- und Prozessmanagement (50%)
+      an der Hochschule für angewandte Wissenschaften Ansbach · Kennziffer 2026-05-WBW
+    </p>
+    <div class="hero-badges">
+      <span class="badge">25+ Jahre Praxiserfahrung DACH</span>
+      <span class="badge">Lehre seit 2004</span>
+      <span class="badge">MSTM-Framework (Neusser, 2026)</span>
+      <span class="badge">ORCID 0000-0001-6484-1421</span>
+    </div>
+    <a href="#profil" class="cta-btn">Zur Bewerbung</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PROFIL
+══════════════════════════════════════════════════ -->
+<section id="profil">
+  <div class="container">
+    <h2 class="section-title">Profil</h2>
+    <div class="section-bar"></div>
+
+    <blockquote class="intro">
+      „Wissenschaftlich fundiert, unternehmerisch erprobt – ich verbinde 25 Jahre Führungspraxis
+      in internationalen Transformationsprojekten mit empirischer Forschung auf höchstem Niveau
+      und einer langjährigen Leidenschaft für praxisnahe Hochschullehre."
+    </blockquote>
+
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="icon">🎓</div>
+        <h4>Akademische Exzellenz</h4>
+        <p>DBA Straight Pass (Henley Business School, University of Reading, Januar 2026), MSc Business Management Research, Executive MBA – alle mit Auszeichnung. Entwickler des MSTM-Frameworks (Neusser, 2026).</p>
+      </div>
+      <div class="profile-card">
+        <div class="icon">🏭</div>
+        <h4>Praxis &amp; Industrie</h4>
+        <p>Geschäftsführer, CRO und Transformationsmanager in über 100 Projekten, Budgetverantwortung bis 100 Mio. €, branchen­übergreifend: Industrie, Automotive, ÖPNV, Konsumgüter, IT, NGO.</p>
+      </div>
+      <div class="profile-card">
+        <div class="icon">📚</div>
+        <h4>Lehrerfahrung seit 2004</h4>
+        <p>Lehrbeauftragter DHBW Stuttgart (seit 2004), DHBW CAS Heilbronn (seit 2019), FAU Erlangen-Nürnberg (2005–2021). Projektmanagement-Trainer bei Ottmann &amp; Partner mit über 100 Seminaren und 1.000+ Teilnehmern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     LEBENSLAUF
+══════════════════════════════════════════════════ -->
+<section id="lebenslauf">
+  <div class="container">
+    <h2 class="section-title">Lebenslauf</h2>
+    <div class="section-bar"></div>
+
+    <!-- Akademische Zeitleiste -->
+    <h3 style="margin-bottom:1rem;">Akademische Qualifikationen</h3>
+    <div class="acad-grid">
+      <div class="acad-card">
+        <span class="years">04/2021 – 01/2026</span>
+        <div class="degree">Doctoral of Business Administration (DBA)</div>
+        <div class="inst">Henley Business School, University of Reading, Großbritannien</div>
+        <p class="note">Titel: <em>Succession in family businesses from ownership to corporatisation</em> · Straight Pass · MSTM-Framework</p>
+      </div>
+      <div class="acad-card">
+        <span class="years">10/2018 – 04/2021</span>
+        <div class="degree">MSc of Business Management Research</div>
+        <div class="inst">Henley Business School, University of Reading, Großbritannien</div>
+        <p class="note">Masterarbeit: <em>Family business succession from ownership to corporatisation – A Research Proposal</em> · Gesamtnote: Merit</p>
+      </div>
+      <div class="acad-card">
+        <span class="years">04/2014 – 09/2017</span>
+        <div class="degree">Executive MBA</div>
+        <div class="inst">Henley Business School, University of Reading, Großbritannien</div>
+        <p class="note">Leadership and General Management · <em>Critical Success Factors in the transition of German family-owned manufacturing SME companies to external management</em> · Merit</p>
+      </div>
+      <div class="acad-card">
+        <span class="years">10/2001 – 06/2005</span>
+        <div class="degree">Diplom-Betriebswirt (FH)</div>
+        <div class="inst">Georg-Simon-Ohm Fachhochschule, Nürnberg</div>
+        <p class="note">Schwerpunkte: Rechnungswesen, Controlling, Finanzen und Steuern · Note: 2,5</p>
+      </div>
+    </div>
+
+    <!-- Berufliche Stationen -->
+    <h3 style="margin-top:3rem; margin-bottom:1.5rem;">Berufserfahrung – 10 Karrierestationen</h3>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">11/2024 – 08/2025</div>
+        <div class="tl-title">Chief Restructuring Officer (CRO)</div>
+        <div class="tl-org">Groupe Atlantic S.A., Paris · Mischkonzern · Ums. ca. 2.800 Mio. €</div>
+        <div class="tl-body">
+          Restrukturierung von fünf Werken in Deutschland, Österreich, Frankreich, Polen und Rumänien.
+          Neuausrichtung der Gesamtgruppe für Kalt- und Wärmespeicher. Aufbau eines konzernweiten PMO.
+          <strong>Budget: 100 Mio. €, 1.500 Mitarbeitende.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">01/2024 – 12/2024</div>
+        <div class="tl-title">Chief Restructuring Officer (CRO)</div>
+        <div class="tl-org">Oerlikon AG, Pfäffikon · Mischkonzern · Ums. ca. 1.500 Mio. €</div>
+        <div class="tl-body">
+          Reorganisation und Strategiedefinition. Projektsetup und -begleitung der Schließung aller fünf Produktionsstandorte in Deutschland. Verhandlung mit Banken, Gesellschaftern, Betriebsrat und Gläubigern.
+          <strong>Aufbau PMO; Plandurchführung wie geplant.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">08/2022 – 07/2023</div>
+        <div class="tl-title">Transformationsmanager / Projektleiter</div>
+        <div class="tl-org">Stiftungsfamilie BSW &amp; EWH (Deutsche Bahn), Frankfurt · NGO · ca. 500 MA</div>
+        <div class="tl-body">
+          Projektleitung Transformation Stiftungswesen. Entwicklung neuer Strategie und Umsetzungsplanung. Aufbau des PMO. Begleitung des Vorstands.
+          <strong>Strategie mit Aufsichtsrat abgestimmt, PMO aufgebaut.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">10/2020 – 06/2022</div>
+        <div class="tl-title">Geschäftsführer / Managing Director (MD)</div>
+        <div class="tl-org">Küchen Quelle GmbH / Islands Labs GmbH / Home Furniture Group GmbH, Nürnberg &amp; Berlin</div>
+        <div class="tl-body">
+          Verantwortung für Transformation, Teilverkauf und Neuordnung der Gesellschafterstruktur.
+          Aufsetzen eines Sparprogramms mit insgesamt 46 Mio. € Einsparung. Einführung Power-BI-Reporting und automatisiertem Rechnungsworkflow.
+          <strong>Budget: 70 Mio. €, 34 Mitarbeitende.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">04/2018 – 04/2020</div>
+        <div class="tl-title">Projektleiter Konzernstrategie Bus / Sanierungsmanager (CRO)</div>
+        <div class="tl-org">DB Regio AG, Frankfurt · Öffentlicher Personennahverkehr · Ums. ca. 8.734 Mio. €</div>
+        <div class="tl-body">
+          Entwicklung Target Operating Model und Standardprozessmodell. Aufbau Projektmanagementoffice und Project Governance für den DB-Regio-Bus-Konzernverbund. Stakeholdermanagement zwischen Konzernvorstand und Bereichsvorständen.
+          <strong>Definiertes Target Operating Model und abgestimmtes Prozesshaus.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">01/2018 – 12/2025</div>
+        <div class="tl-title">Associate Partner</div>
+        <div class="tl-org">4C GROUP AG Management Beratung, München · Ums. ca. 16 Mio. €</div>
+        <div class="tl-body">
+          Schwerpunkt eigentümergeführte Unternehmen: Eigentümer- und Unternehmensstruktur, Wachstum und Sanierung.
+          Branchenfokus: Banken &amp; Versicherungen, Maschinenbau, Öffentlicher Verkehr, Prozessindustrie.
+          <strong>Jahresumsatz Akquise: ca. 3 Mio. €.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">01/2017 – 08/2017</div>
+        <div class="tl-title">Geschäftsführer CFO / CEO</div>
+        <div class="tl-org">Riedel Glas, Weiden/Kufstein · Familienunternehmen · Ums. ca. 350 Mio. €</div>
+        <div class="tl-body">
+          Verantwortung für Buchhaltung, Finanzen, Personal, Einkauf, Supply Chain und IT.
+          Gesamtverantwortung für die Restrukturierung der Nachtmann Gruppe. Begleitung Generationenwechsel.
+          <strong>Budget: 80 Mio. €, 120 Mitarbeitende.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">05/2005 – 12/2016</div>
+        <div class="tl-title">Kaufmännischer Geschäftsführer (CFO) &amp; Managing Director</div>
+        <div class="tl-org">FATH Group, Spalt / Orlando / Budapest / Shanghai · Int. Maschinenbau · Ums. ca. 60 Mio. €</div>
+        <div class="tl-body">
+          Aufbau Konzernstrukturen, Controlling, Supply-Chain-Management, Working-Capital-Management.
+          Verlagerung und Ausbau Shared-Service-Center nach Ungarn. Lean Management in Administration und Produktion.
+          <strong>Budget: 20 Mio. €, 45 Mitarbeitende; Abwendung drohender Insolvenz.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">10/2012 – 09/2013</div>
+        <div class="tl-title">Carve-out Manager</div>
+        <div class="tl-org">Siemens AG, München · Konglomerat · Ums. ca. 83.000 Mio. €</div>
+        <div class="tl-body">
+          Etablierung und Aufbau des PMO. Projektleitung Carve-out. Definition und Abstimmung der Carve-out-Regeln sowie Meilensteinplanung.
+          <strong>Budget: 3 Mio. €; erfolgreicher Abschluss im Zeit- und Budgetrahmen.</strong>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">05/2002 – 04/2004</div>
+        <div class="tl-title">Senior Associate – Transaction Services</div>
+        <div class="tl-org">KPMG AG, Frankfurt · Ums. ca. 1,6 Mrd. €</div>
+        <div class="tl-body">
+          Reorganisation eines Produktionsunternehmens; Restrukturierung eines Großhändlers; Bewertung eines kanadischen Holzherstellers; Projektsteuerung Übernahme Landesbank Rheinland-Pfalz durch LBBW.
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+
+    <!-- Lehrtätigkeit -->
+    <h3 style="margin-top:3rem; margin-bottom:1rem;">Lehr- und Trainertätigkeit (seit 2004)</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">seit 10/2004</div>
+        <div class="tl-title">Lehrbeauftragter</div>
+        <div class="tl-org">Duale Hochschule Baden-Württemberg (DHBW), Stuttgart</div>
+        <div class="tl-body">Rechnungslegung, Kostenrechnung, Controlling, Unternehmensführung, Verhandlungsführung (Wirtschaftsingenieurwesen) · Abschluss: Bachelor</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">seit 04/2019</div>
+        <div class="tl-title">Lehrbeauftragter</div>
+        <div class="tl-org">DHBW Center for Advanced Studies (CAS), Heilbronn</div>
+        <div class="tl-body">Wertorientierte Unternehmensführung (Technik) · Abschluss: Master</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">10/2005 – 09/2021</div>
+        <div class="tl-title">Dozent</div>
+        <div class="tl-org">Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)</div>
+        <div class="tl-body">Projektmanagement, Businessplanerstellung, Finanzplanung, Industrielles Management · Bachelor und Master</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">seit 06/2010</div>
+        <div class="tl-title">Projektmanagement-Trainer und -Coach</div>
+        <div class="tl-org">Ottmann &amp; Partner GmbH, Nürnberg</div>
+        <div class="tl-body">Zertifizierungsvorbereitung nach GPM/IPMA, PMI und IAPM. Über 100 Seminare, 1.000+ Teilnehmer. Referenzen: Siemens AG, Lanxess AG, 1&amp;1 Versatel, Robert Bosch AG, Deutsche Bank.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     DISSERTATION
+══════════════════════════════════════════════════ -->
+<section id="dissertation">
+  <div class="container">
+    <h2 class="section-title">Dissertation &amp; MSTM-Framework</h2>
+    <div class="section-bar"></div>
+
+    <p style="margin-bottom:1.5rem; font-size:0.95rem;">
+      <strong>Neusser, C. (2026).</strong> <em>Succession in family businesses from ownership to corporatisation.</em>
+      Doctoral dissertation (DBA), Henley Business School, University of Reading. <strong>Straight Pass.</strong>
+    </p>
+
+    <div class="diss-grid">
+      <div>
+        <h3>Forschungsdesign &amp; Methode</h3>
+        <p style="font-size:0.92rem; margin:0.75rem 0;">
+          Die Arbeit untersucht, wie Familienunternehmen den Übergang vom Eigentümermanagement zur
+          professionalisierten Fremdgeschäftsführung gestalten. Methodisch basiert die Studie auf der
+          <strong>Gioia-Methode</strong> – einem etablierten Ansatz der qualitativen
+          Organisationsforschung –, der induktiv Konzepte aus den Daten herausarbeitet und in
+          theoretische Konstrukte überführt.
+        </p>
+        <p style="font-size:0.92rem; margin:0.75rem 0;">
+          Zentrale Erkenntnis ist das originäre <strong>MSTM-Framework</strong>
+          (Mechanisms–Structure–Trust–Mandate), das die vier interdependenten Dimensionen des
+          Nachfolgesystems beschreibt und als handlungsleitender Rahmen für Praktikerinnen und
+          Praktiker konzipiert ist.
+        </p>
+
+        <h3 style="margin-top:1.5rem;">6 Forschungspropositionen</h3>
+        <ul class="proposition-list">
+          <li>Governance-Mechanismen bedingen den Erfolg externer Nachfolge</li>
+          <li>Strukturelle Klarheit erhöht die Transitionsstabilität</li>
+          <li>Vertrauen (Trust) ist notwendige Bedingung für Mandatsübergabe</li>
+          <li>Mandatsklarheit reduziert Rollenkonflikte und Dysfunktionen</li>
+          <li>Archetypen extern berufener Manager moderieren den Prozess</li>
+          <li>Dynamische Fähigkeiten bestimmen die Post-Transition-Performance</li>
+        </ul>
+
+        <h3 style="margin-top:1.5rem;">12 Akteursarchetypen</h3>
+        <p style="font-size:0.88rem; color:#555;">
+          Die Analyse identifiziert zwölf distinkte Archetypen externer Manager – von der
+          „Trusted Custodian" bis zum „Strategic Disruptor" – und liefert damit eine differenzierte
+          Handlungsgrundlage für Beratung, Governance-Design und empirische Folgestudien.
+        </p>
+      </div>
+
+      <div>
+        <div class="framework-box">
+          <div class="fw-title">MSTM</div>
+          <div class="fw-sub">Neusser (2026) – Mechanisms · Structure · Trust · Mandate</div>
+          <div class="mstm-grid">
+            <div class="mstm-cell">
+              <span class="letter">M</span>
+              <span class="word">Mechanisms<br><small>Governance-Strukturen &amp; Prozesse</small></span>
+            </div>
+            <div class="mstm-cell">
+              <span class="letter">S</span>
+              <span class="word">Structure<br><small>Rollen &amp; Verantwortlichkeiten</small></span>
+            </div>
+            <div class="mstm-cell">
+              <span class="letter">T</span>
+              <span class="word">Trust<br><small>Beziehungskapital &amp; Vertrauen</small></span>
+            </div>
+            <div class="mstm-cell">
+              <span class="letter">M</span>
+              <span class="word">Mandate<br><small>Ermächtigung &amp; Delegation</small></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="diss-stats" style="margin-top:1.5rem;">
+          <div class="stat-box">
+            <span class="num">102</span>
+            <span class="lbl">Interviews geführt</span>
+          </div>
+          <div class="stat-box">
+            <span class="num">42</span>
+            <span class="lbl">Unternehmen untersucht</span>
+          </div>
+          <div class="stat-box">
+            <span class="num">6</span>
+            <span class="lbl">Forschungspropositionen</span>
+          </div>
+          <div class="stat-box">
+            <span class="num">12</span>
+            <span class="lbl">Akteursarchetypen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     LEHRE & DIDAKTIK
+══════════════════════════════════════════════════ -->
+<section id="lehre">
+  <div class="container">
+    <h2 class="section-title">Lehre &amp; Didaktik</h2>
+    <div class="section-bar"></div>
+
+    <p style="margin-bottom:1rem;">
+      Meine Lehrphilosophie verbindet <strong>konstruktivistische Lerntheorie</strong>
+      (Vygotsky, 1978; Jonassen, 1991) mit erfahrungsbasiertem Lernen nach Kolb (1984).
+      Studierende eignen sich Wissen nicht rezeptiv an, sondern durch aktives Erleben,
+      Reflexion und Transfer in reale Kontexte.
+    </p>
+
+    <div class="teach-grid">
+      <div class="teach-card">
+        <div class="tc-icon">🚀</div>
+        <h4>VentureLab (10 Wochen)</h4>
+        <p>Entrepreneurship-Format, in dem Studierende reale Geschäftsmodelle in interdisziplinären Teams entwickeln, pitchen und iterieren. Kombination aus Design Thinking, Lean Startup und Business Model Canvas.</p>
+      </div>
+      <div class="teach-card">
+        <div class="tc-icon">🔄</div>
+        <h4>Change Practitioner Line</h4>
+        <p>Praxisorientiertes Format, in dem Studierende reale Transformationsprojekte aus DACH-Unternehmen analysieren, Lösungskonzepte entwickeln und im Plenum validieren. Direkter Praxistransfer.</p>
+      </div>
+      <div class="teach-card">
+        <div class="tc-icon">🧩</div>
+        <h4>Action Learning</h4>
+        <p>Revans (1982) folgend werden echte Probleme aus der Praxis von Lerngruppen bearbeitet. Peer-Coaching und strukturierte Reflexionsschleifen sichern nachhaltiges Lernen und Teamkompetenz.</p>
+      </div>
+      <div class="teach-card">
+        <div class="tc-icon">📊</div>
+        <h4>Case Studies &amp; Fallstudien</h4>
+        <p>Einsatz eigener, authentischer Fälle aus 25 Jahren Praxis. SCM-Restrukturierungen, PMO-Aufbau, Carve-outs und Change-Projekte als Lernmaterial – didaktisch aufbereitet nach Harvard-Methodik.</p>
+      </div>
+      <div class="teach-card">
+        <div class="tc-icon">📝</div>
+        <h4>Lernjournal statt Klausur</h4>
+        <p>Portfolio-orientierte Prüfungsformen fördern Reflexionskompetenz und Metakognition. Lernjournal und Projektberichte ersetzen punktuelle Wissensabfrage durch kontinuierlichen Kompetenzaufbau.</p>
+      </div>
+      <div class="teach-card">
+        <div class="tc-icon">🌐</div>
+        <h4>Duales Studium &amp; Praxispartner</h4>
+        <p>Langjährige Erfahrung in der Betreuung dualer Studierender (DHBW seit 2004). Aufbau und Pflege von Unternehmensnetzwerken als Grundlage für praxisintegrierte Lehrmodule und Abschlussarbeiten.</p>
+      </div>
+    </div>
+
+    <div class="mt2" style="background:var(--white); padding:1.5rem; border-radius:6px; box-shadow:0 1px 5px rgba(0,0,0,0.07);">
+      <h3>Zertifizierungen &amp; PM-Trainer</h3>
+      <p style="font-size:0.9rem; margin-top:0.5rem;">
+        Zertifizierter Senior-Projektmanager (GPM/IPMA Level B, PMI PMP, IAPM), Agiler Projektmanager (IAPM, 2013),
+        Internationaler Projektmanager (IAPM, 2014), Restrukturierungsexperte (FH, 2012), Lean Expert (Honeywell, 2010),
+        Operativer Prozessmanager (BPMN 2.0, 2017). Henley PGCert Coaching for Behavioural Change (2019).
+        Negotiation Skills I &amp; II (Scotwork, 2018) · Summer School Harvard Law School (2015).
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PUBLIKATIONEN
+══════════════════════════════════════════════════ -->
+<section id="publikationen">
+  <div class="container">
+    <h2 class="section-title">Publikationen</h2>
+    <div class="section-bar"></div>
+    <p style="font-size:0.88rem; color:#666; margin-bottom:1.5rem;">Alle Angaben in APA 7. ORCID: <a href="https://orcid.org/0000-0001-6484-1421" target="_blank" style="color:var(--teal);">0000-0001-6484-1421</a></p>
+
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <span class="pub-status published">Peer-reviewed · Open Access</span>
+        <p class="pub-ref">
+          Neusser, C. (2025). Succession in family businesses: Governance mechanisms and the transition from owner-management to external leadership.
+          <em>Journal of Family Business Strategy (JFBS)</em>. Advance online publication.
+          <a href="https://doi.org/10.xxxx" target="_blank" style="color:var(--teal); font-size:0.82rem;">[DOI – open access]</a>
+        </p>
+        <p class="pub-note">🏆 Open-Access-Veröffentlichung · ABS-gelistetes Journal</p>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-status published">Dissertationsschrift</span>
+        <p class="pub-ref">
+          Neusser, C. (2026). <em>Succession in family businesses from ownership to corporatisation</em>
+          [Doctoral dissertation, DBA Straight Pass]. Henley Business School, University of Reading.
+        </p>
+        <p class="pub-note">MSTM-Framework · 102 Interviews · 42 Unternehmen · Gioia-Methode</p>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-status published">Monographie / Buchbeitrag</span>
+        <p class="pub-ref">
+          Neusser, C. (2018). <em>Projektmanagement in mittelständischen Strukturen</em>.
+          Verlag Dr. Kovač.
+        </p>
+      </div>
+
+      <div class="pub-item forthcoming">
+        <span class="pub-status forthcoming">Forthcoming · Buchkapitel</span>
+        <p class="pub-ref">
+          Neusser, C. (forthcoming). Change governance in family businesses: The role of trust and mandate.
+          In [Hrsg.]. <em>[Sammelband Organization &amp; Change]</em>. Edward Elgar Publishing.
+        </p>
+      </div>
+
+      <div class="pub-item forthcoming">
+        <span class="pub-status forthcoming">Forthcoming · Zeitschrift</span>
+        <p class="pub-ref">
+          Neusser, C. (forthcoming). MSTM als Steuerungsrahmen für externe Nachfolge in Familienunternehmen.
+          <em>Zeitschrift für KMU und Entrepreneurship (ZfKE)</em>.
+        </p>
+      </div>
+
+      <div class="pub-item review">
+        <span class="pub-status review">Under Review</span>
+        <p class="pub-ref">
+          Neusser, C. (under review). Dynamic capabilities in post-succession family SMEs.
+          <em>Journal of Family Business Strategy (JFBS) / Family Business Review (FBR) / Entrepreneurship Theory &amp; Practice (ET&amp;P)</em>.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FORSCHUNGSAGENDA
+══════════════════════════════════════════════════ -->
+<section id="forschung">
+  <div class="container">
+    <h2 class="section-title">Forschungsagenda</h2>
+    <div class="section-bar"></div>
+    <p style="margin-bottom:1.5rem;">
+      Aufbauend auf dem MSTM-Framework verfolge ich eine strukturierte Forschungsagenda für die
+      ersten drei Jahre an der Hochschule Ansbach, die quantitative Validierung,
+      Change-Governance-Forschung und Dynamic-Capabilities-Studien verbindet.
+    </p>
+
+    <div class="research-grid">
+      <div class="research-card">
+        <h4>📐 Quantitative MSTM-Validierung</h4>
+        <ul>
+          <li>Skalierung der 6 Propositionen in Messinstrumente</li>
+          <li>PLS-SEM-Analyse (Partial Least Squares)</li>
+          <li>Großangelegte Survey-Studie (DACH, n ≥ 300)</li>
+          <li>Ziel-Journals: <em>Family Business Review</em>, <em>JMS</em></li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h4>🏛️ Change Governance in Familienunternehmen</h4>
+        <ul>
+          <li>Governance-Mechanismen als Change-Enabler</li>
+          <li>Längsschnittdesign mit Praxispartnern aus DACH</li>
+          <li>Kooperation mit IFERA und AOM Research Networks</li>
+          <li>Ziel-Journal: <em>Organization Studies</em></li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h4>⚡ Dynamic Capabilities in KMU</h4>
+        <ul>
+          <li>Teece (2007) im Kontext österreichischer/deutscher KMU</li>
+          <li>Post-Transition-Performance in Familienunternehmen</li>
+          <li>Mixed-Methods-Design</li>
+          <li>Drittmittelpotenzial: FFG, FWF, EU Horizon</li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h4>🌍 Konferenzen &amp; Vernetzung</h4>
+        <ul>
+          <li>EURAM (European Academy of Management)</li>
+          <li>AOM (Academy of Management)</li>
+          <li>IFERA (International Family Enterprise Research Academy)</li>
+          <li>BMBF / ZIM-Kooperationsprojekte mit Mittelstand</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2rem; margin-bottom:0.75rem;">Ziel-Journals</h3>
+    <div class="journal-pills">
+      <span class="j-pill">Family Business Review (FBR)</span>
+      <span class="j-pill">Journal of Management Studies (JMS)</span>
+      <span class="j-pill">Organization Studies (OS)</span>
+      <span class="j-pill">JFBS (ABS-listed)</span>
+      <span class="j-pill">ZfKE</span>
+      <span class="j-pill">ET&amp;P</span>
+    </div>
+
+    <div class="mt2" style="background:var(--white); padding:1.5rem; border-radius:6px; box-shadow:0 1px 5px rgba(0,0,0,0.07);">
+      <h3>Drittmittelpotenzial</h3>
+      <p style="font-size:0.9rem; margin-top:0.5rem;">
+        Identifizierte Förderprogramme: <strong>FWF</strong> (Österr. Wissenschaftsfonds – Einzelprojekte),
+        <strong>FFG</strong> (Förderung kooperativer Forschung mit Unternehmen),
+        <strong>EU Horizon Europe</strong> (Cluster 5 – Climate, Energy, Mobility; Cluster 6 – Food &amp; Bioeconomy),
+        <strong>BMBF</strong> (Mittelstand-Digital, Zukunft der Arbeit),
+        <strong>ZIM</strong> (Zentrales Innovationsprogramm Mittelstand – KMU-Kooperationsprojekte).
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PRAXISMANDATE
+══════════════════════════════════════════════════ -->
+<section id="mandate">
+  <div class="container">
+    <h2 class="section-title">Praxismandate</h2>
+    <div class="section-bar"></div>
+    <p style="margin-bottom:1.5rem;">
+      Vier exemplarische Mandate illustrieren die Breite und Tiefe meiner Praxisexpertise –
+      von internationalen Konzernstrukturen bis zum deutschen Mittelstand.
+    </p>
+
+    <div class="mandate-grid">
+      <div class="mandate-card">
+        <div class="company">Deutsche Bahn / Stiftungsfamilie BSW &amp; EWH</div>
+        <div class="role">Transformationsmanager · Frankfurt · 2022–2023</div>
+        <div class="detail">
+          Projektleitung Transformation Stiftungswesen der Deutschen Bahn.
+          Erarbeitung Gesamtstrategie, Umsetzungsplanung, PMO-Aufbau.
+          NGO · ca. 60 Mio. € · 500 MA.
+        </div>
+      </div>
+      <div class="mandate-card">
+        <div class="company">Oerlikon AG</div>
+        <div class="role">CRO · Pfäffikon/Deutschland · 2024</div>
+        <div class="detail">
+          Reorganisation und Strategiedefinition. Schließung aller fünf deutschen Produktionsstandorte.
+          Aufbau PMO, Verhandlung mit Banken und Gläubigern.
+          Mischkonzern · Ums. 1.500 Mio. € · 23.000 MA.
+        </div>
+      </div>
+      <div class="mandate-card">
+        <div class="company">Groupe Atlantic S.A.</div>
+        <div class="role">CRO · Paris / DACH / CEE · 2024–2025</div>
+        <div class="detail">
+          Restrukturierung fünf Werke in fünf Ländern. Neuausrichtung Gesamtgruppe Kalt-/Wärmespeicher.
+          Aufbau konzernweites PMO.
+          Mischkonzern · Ums. 2.800 Mio. € · 13.000 MA.
+        </div>
+      </div>
+      <div class="mandate-card">
+        <div class="company">Mittelstand DACH</div>
+        <div class="role">Projektmanagement · Strategie · SCM · seit 2005</div>
+        <div class="detail">
+          Über 20 Projekte in produzierenden KMU: Lean-Einführung, Supply-Chain-Restrukturierung,
+          Prozessoptimierung, ERP-Einführung, Strategieentwicklung.
+          Branchen: Maschinenbau, Textil, Chemie, Möbel, Energie.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     KONTAKT
+══════════════════════════════════════════════════ -->
+<section id="kontakt">
+  <div class="container">
+    <h2 class="section-title">Kontakt</h2>
+    <div class="section-bar"></div>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <strong style="color:var(--gold);">E-Mail</strong>
+          <p><a href="mailto:christian.neusser@me.com">christian.neusser@me.com</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <strong style="color:var(--gold);">Telefon</strong>
+          <p style="color:rgba(255,255,255,0.85);">0151 / 62 50 08 02</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🏠</div>
+        <div>
+          <strong style="color:var(--gold);">Adresse</strong>
+          <p style="color:rgba(255,255,255,0.85);">Helene-Lange Str. 28 · 91056 Erlangen</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🔬</div>
+        <div>
+          <strong style="color:var(--gold);">ORCID</strong>
+          <p><a href="https://orcid.org/0000-0001-6484-1421" target="_blank">0000-0001-6484-1421</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🌐</div>
+        <div>
+          <strong style="color:var(--gold);">Website</strong>
+          <p><a href="https://cneusser.github.io/ocm-website" target="_blank">cneusser.github.io/ocm-website</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📋</div>
+        <div>
+          <strong style="color:var(--gold);">Stellenausschreibung</strong>
+          <p style="color:rgba(255,255,255,0.85);">Kennziffer 2026-05-WBW<br>Hochschule Ansbach · Fakultät Wirtschaft</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer>
+  <p>Dr. Christian Neusser, DBA, MBA, MSc &nbsp;·&nbsp; Bewerbung Professur W2, Hochschule Ansbach &nbsp;·&nbsp; Kennziffer 2026-05-WBW</p>
+  <p style="margin-top:0.5rem;">
+    <a href="mailto:christian.neusser@me.com">christian.neusser@me.com</a> &nbsp;·&nbsp;
+    ORCID <a href="https://orcid.org/0000-0001-6484-1421">0000-0001-6484-1421</a> &nbsp;·&nbsp;
+    <a href="https://cneusser.github.io/ocm-website">cneusser.github.io/ocm-website</a>
+  </p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const ham = document.getElementById('ham');
+    const menu = document.getElementById('navMenu');
+    ham.classList.toggle('active');
+    menu.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('ham').classList.remove('active');
+    document.getElementById('navMenu').classList.remove('open');
+  }
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
