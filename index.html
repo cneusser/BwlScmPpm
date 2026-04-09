@@ -365,6 +365,64 @@
       display: block;
     }
     .mstm-cell .word { font-size: 0.78rem; opacity: 0.85; }
+    .mstm-cell .mstm-detail {
+      font-size: 0.72rem;
+      opacity: 0.70;
+      margin-top: 0.4rem;
+      line-height: 1.5;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 0.4rem;
+    }
+
+    /* ── PHASE MODEL ─────────────────────────────────────────── */
+    .phase-flow {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .phase-item {
+      flex: 1;
+      min-width: 100px;
+      background: var(--navy);
+      color: white;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      position: relative;
+      font-size: 0.8rem;
+    }
+    .phase-item:not(:last-child)::after {
+      content: '▶';
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 1rem;
+      z-index: 2;
+    }
+    .phase-item .phase-num {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .phase-item .phase-name {
+      display: block;
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-bottom: 0.25rem;
+    }
+    .phase-item .phase-desc { font-size: 0.72rem; opacity: 0.75; line-height: 1.4; }
+    .phase-item.phase-end { background: var(--teal); }
+    @media (max-width: 640px) {
+      .phase-flow { flex-direction: column; }
+      .phase-item:not(:last-child)::after { content: '▼'; right: auto; left: 50%; bottom: -12px; top: auto; transform: translateX(-50%); }
+    }
 
     /* ── TEACHING ─────────────────────────────────────────────── */
     .teach-grid {
@@ -647,6 +705,44 @@
       </div>
     </div>
 
+    <!-- Schlüsselkompetenzen -->
+    <h3 style="margin-top:3rem; margin-bottom:1rem;">Schlüsselkompetenzen</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1rem; margin-bottom:1rem;">
+
+      <div style="background:var(--white); border-radius:6px; padding:1.25rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:3px solid var(--navy);">
+        <div style="font-weight:700; color:var(--navy); font-size:0.9rem; margin-bottom:0.75rem;">📦 Supply Chain Management</div>
+        <div style="font-size:0.82rem; color:#555; line-height:1.6;">
+          Working-Capital-Optimierung · Lean Management · ERP-Implementierung ·
+          Lieferanten­management · Internationales SCM (DACH / Osteuropa / Asien)
+        </div>
+      </div>
+
+      <div style="background:var(--white); border-radius:6px; padding:1.25rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:3px solid var(--teal);">
+        <div style="font-weight:700; color:var(--teal); font-size:0.9rem; margin-bottom:0.75rem;">📐 Projekt- &amp; Prozessmanagement</div>
+        <div style="font-size:0.82rem; color:#555; line-height:1.6;">
+          PMO-Aufbau · Carve-out · BPMN 2.0 · GPM/IPMA Level B ·
+          PMI PMP · Agile Methoden · PRINCE2 · 100+ Projekte
+        </div>
+      </div>
+
+      <div style="background:var(--white); border-radius:6px; padding:1.25rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:3px solid var(--gold);">
+        <div style="font-weight:700; color:#b07800; font-size:0.9rem; margin-bottom:0.75rem;">💰 BWL &amp; Unternehmensführung</div>
+        <div style="font-size:0.82rem; color:#555; line-height:1.6;">
+          Controlling · Rechnungswesen · Restrukturierung ·
+          Strategieentwicklung · M&amp;A / Carve-out · Budgetverantwortung bis 100 Mio. €
+        </div>
+      </div>
+
+      <div style="background:var(--white); border-radius:6px; padding:1.25rem; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-top:3px solid #6c757d;">
+        <div style="font-weight:700; color:#444; font-size:0.9rem; margin-bottom:0.75rem;">🎓 Forschung &amp; Lehre</div>
+        <div style="font-size:0.82rem; color:#555; line-height:1.6;">
+          Gioia-Methode · PLS-SEM · Qualitative Fallstudien ·
+          Lehrbeauftragter seit 2004 · Bachelor &amp; Master · 1.000+ Seminarteilnehmer
+        </div>
+      </div>
+
+    </div>
+
     <!-- Berufliche Stationen -->
     <h3 style="margin-top:3rem; margin-bottom:1.5rem;">Berufserfahrung – 10 Karrierestationen</h3>
     <div class="timeline">
@@ -805,11 +901,15 @@
       <div>
         <h3>Forschungsdesign &amp; Methode</h3>
         <p style="font-size:0.92rem; margin:0.75rem 0;">
-          Die Arbeit untersucht, wie Familienunternehmen den Übergang vom Eigentümermanagement zur
-          professionalisierten Fremdgeschäftsführung gestalten. Methodisch basiert die Studie auf der
-          <strong>Gioia-Methode</strong> – einem etablierten Ansatz der qualitativen
-          Organisationsforschung –, der induktiv Konzepte aus den Daten herausarbeitet und in
-          theoretische Konstrukte überführt.
+          Die Arbeit untersucht, wie produzierende Familienunternehmen den Übergang vom
+          Eigentümermanagement zur professionalisierten Fremdgeschäftsführung gestalten –
+          mit besonderem Fokus auf Governance, Narrativ und Legacy als interdependente Steuerungsebenen.
+          Methodisch basiert die Studie auf der <strong>Gioia-Methode</strong> (Gioia et al., 2013) –
+          einem etablierten Ansatz der qualitativen Organisationsforschung –, der induktiv
+          First-Order-Konzepte aus den Rohdaten herausarbeitet, zu Second-Order-Themen verdichtet
+          und in aggregierte theoretische Dimensionen überführt. Empirische Basis:
+          <strong>42 Familienunternehmen</strong>, <strong>102 Interviews</strong>,
+          davon 8 fokale Längsschnitt-Fallstudien und 34 Validierungsfälle.
         </p>
         <p style="font-size:0.92rem; margin:0.75rem 0;">
           Zentrale Erkenntnis ist das originäre <strong>MSTM-Framework</strong>
@@ -817,6 +917,35 @@
           Nachfolgesystems beschreibt und als handlungsleitender Rahmen für Praktikerinnen und
           Praktiker konzipiert ist.
         </p>
+
+        <h3 style="margin-top:1.5rem;">Der 5-Phasen-Prozess externer Nachfolge</h3>
+        <div class="phase-flow">
+          <div class="phase-item">
+            <span class="phase-num">Phase 1</span>
+            <span class="phase-name">Trigger</span>
+            <span class="phase-desc">Auslöser­ereignis · Familien­interne Krise · Strategischer Impuls</span>
+          </div>
+          <div class="phase-item">
+            <span class="phase-num">Phase 2</span>
+            <span class="phase-name">Selection</span>
+            <span class="phase-desc">Suche, Auswahl &amp; Vertrags­gestaltung · Mandate-Setting</span>
+          </div>
+          <div class="phase-item">
+            <span class="phase-num">Phase 3</span>
+            <span class="phase-name">Onboarding</span>
+            <span class="phase-desc">Einarbeitung · Trust-Building · Rollen­klärung</span>
+          </div>
+          <div class="phase-item">
+            <span class="phase-num">Phase 4</span>
+            <span class="phase-name">Legitimisation</span>
+            <span class="phase-desc">Symbolische &amp; institutionelle Legitimations­prozesse</span>
+          </div>
+          <div class="phase-item phase-end">
+            <span class="phase-num">Phase 5</span>
+            <span class="phase-name">Renewal / Exit</span>
+            <span class="phase-desc">Mandat­erneuerung oder geordneter Abgang</span>
+          </div>
+        </div>
 
         <h3 style="margin-top:1.5rem;">6 Forschungspropositionen</h3>
         <ul class="proposition-list">
@@ -859,19 +988,23 @@
           <div class="mstm-grid">
             <div class="mstm-cell">
               <span class="letter">M</span>
-              <span class="word">Mechanisms<br><small>Governance-Strukturen &amp; Prozesse</small></span>
+              <span class="word">Mechanisms<br><small>Formale Governance-Prozesse</small></span>
+              <div class="mstm-detail">Suchverfahren für externe Nachfolger · Vertrags­gestaltung · Vergütungs­strukturen · Berichts­wege</div>
             </div>
             <div class="mstm-cell">
               <span class="letter">S</span>
-              <span class="word">Structure<br><small>Rollen &amp; Verantwortlichkeiten</small></span>
+              <span class="word">Structure<br><small>Institutionelle Rahmung</small></span>
+              <div class="mstm-detail">Beiräte &amp; Aufsichtsräte · Familien­rat · Gesellschafter­ausschuss · Rollen­abgrenzung Eigentümer/Management</div>
             </div>
             <div class="mstm-cell">
               <span class="letter">T</span>
-              <span class="word">Trust<br><small>Beziehungskapital &amp; Vertrauen</small></span>
+              <span class="word">Trust<br><small>Vertrauen &amp; Legitimität</small></span>
+              <div class="mstm-detail">Kompetenz­basiertes Vertrauen · Beziehungs­basiertes Vertrauen · Symbolische Legitimations­akte · Reputations­transfer</div>
             </div>
             <div class="mstm-cell">
               <span class="letter">M</span>
-              <span class="word">Mandate<br><small>Ermächtigung &amp; Delegation</small></span>
+              <span class="word">Mandate<br><small>Ermächtigung &amp; Autorität</small></span>
+              <div class="mstm-detail">Formale Entscheidungs­befugnisse · Symbolische Autorität · Mandat­klarheit · Scope of Authority</div>
             </div>
           </div>
         </div>
@@ -1033,14 +1166,13 @@
 
     <div class="pub-list">
 
-      <div class="pub-item">
-        <span class="pub-status published">Peer-reviewed · Open Access</span>
+      <div class="pub-item forthcoming">
+        <span class="pub-status forthcoming">Submitted · Peer Review</span>
         <p class="pub-ref">
-          Neusser, C. (2025). Succession in family businesses: Governance mechanisms and the transition from owner-management to external leadership.
-          <em>Journal of Family Business Strategy (JFBS)</em>. Advance online publication.
-          <a href="https://doi.org/10.xxxx" target="_blank" style="color:var(--teal); font-size:0.82rem;">[DOI – open access]</a>
+          Neusser, C. (submitted). Succession in family businesses: Governance mechanisms and the transition from owner-management to external leadership.
+          <em>Journal of Family Business Strategy (JFBS)</em>.
         </p>
-        <p class="pub-note">🏆 Open-Access-Veröffentlichung · ABS-gelistetes Journal</p>
+        <p class="pub-note">ABS-gelistetes Journal · Basiert auf DBA-Dissertation</p>
       </div>
 
       <div class="pub-item">
@@ -1155,7 +1287,7 @@
       <p style="font-size:0.9rem; margin-top:0.5rem;">
         Identifizierte Förderprogramme: <strong>FWF</strong> (Österr. Wissenschaftsfonds – Einzelprojekte),
         <strong>FFG</strong> (Förderung kooperativer Forschung mit Unternehmen),
-        <strong>EU Horizon Europe</strong> (Cluster 5 – Climate, Energy, Mobility; Cluster 6 – Food &amp; Bioeconomy),
+        <strong>EU Horizon Europe</strong> (Cluster 2 – Culture, Creativity and Inclusive Society; MSCA Postdoctoral Fellowships),
         <strong>BMBF</strong> (Mittelstand-Digital, Zukunft der Arbeit),
         <strong>ZIM</strong> (Zentrales Innovationsprogramm Mittelstand – KMU-Kooperationsprojekte).
       </p>
@@ -1257,7 +1389,7 @@
         <div class="contact-icon">🌐</div>
         <div>
           <strong style="color:var(--gold);">Website</strong>
-          <p><a href="https://cneusser.github.io/ocm-website" target="_blank">cneusser.github.io/ocm-website</a></p>
+          <p><a href="https://cneusser.github.io/BwlScmPpm/" target="_blank">cneusser.github.io/BwlScmPpm</a></p>
         </div>
       </div>
       <div class="contact-item">
@@ -1279,7 +1411,7 @@
   <p style="margin-top:0.5rem;">
     <a href="mailto:christian.neusser@me.com">christian.neusser@me.com</a> &nbsp;·&nbsp;
     ORCID <a href="https://orcid.org/0000-0001-6484-1421">0000-0001-6484-1421</a> &nbsp;·&nbsp;
-    <a href="https://cneusser.github.io/ocm-website">cneusser.github.io/ocm-website</a>
+    <a href="https://cneusser.github.io/BwlScmPpm">cneusser.github.io/BwlScmPpm</a>
   </p>
 </footer>
 
